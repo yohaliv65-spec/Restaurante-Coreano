@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Reservaciones – Hanshikdang</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥢</text></svg>"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/reservaciones.css"/>
+</head>
+<body>
+
+<div class="page-loader"><div class="loader-inner"><div class="loader-kr">한</div><div class="loader-en">Hanshikdang</div></div></div>
+
+<header id="mainHeader">
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" class="nav-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      <li><a href="menu.html" class="nav-link">Menú</a></li>
+      <li><a href="reservaciones.html" class="nav-link">Reservaciones</a></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div id="navUserArea"></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main class="reserv-page">
+
+  <section class="reserv-hero">
+    <div class="rh-bg"></div>
+    <div class="container rh-inner">
+      <div class="section-tag" style="color:var(--gold-l)">예약 · Reservaciones</div>
+      <h1 class="section-title light">Reserva tu <em>Mesa</em></h1>
+      <p>Selecciona zona, fecha y horario. Elige visualmente tu mesa en el mapa.<br/>Recibirás confirmación por correo o WhatsApp.</p>
+    </div>
+  </section>
+
+  <section class="reserv-body">
+    <div class="container">
+
+      <div id="authGate" class="auth-gate">
+        <div class="ag-inner">
+          <div class="ag-icon">🔐</div>
+          <h2>Inicia sesión para reservar</h2>
+          <p>Crea una cuenta gratuita o inicia sesión para gestionar tus reservaciones y recibir notificaciones.</p>
+          <div class="ag-btns">
+            <a href="login.html" class="btn-primary btn-lg">Iniciar Sesión</a>
+            <a href="login.html#register" class="btn-secondary btn-lg">Crear Cuenta</a>
+          </div>
+        </div>
+      </div>
+
+      <div id="reservContent" class="hidden">
+        <div class="reserv-layout">
+
+          <div class="reserv-left">
+            <div class="reserv-card-box">
+              <h2 class="box-title">1. Elige Fecha y Hora</h2>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>📅 Fecha</label>
+                  <input type="date" id="reservDate"/>
+                </div>
+                <div class="form-group">
+                  <label>🕐 Horario</label>
+                  <select id="reservTime">
+                    <option value="">Seleccionar</option>
+                    <optgroup label="🍱 Comida">
+                      <option value="13:00">13:00 hrs</option>
+                      <option value="14:00">14:00 hrs</option>
+                      <option value="15:00">15:00 hrs</option>
+                    </optgroup>
+                    <optgroup label="🌙 Cena">
+                      <option value="19:00">19:00 hrs</option>
+                      <option value="20:00">20:00 hrs</option>
+                      <option value="21:00">21:00 hrs</option>
+                    </optgroup>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>👥 Número de personas</label>
+                <div class="guests-picker">
+                  <button class="gp-btn" id="guestMinus">−</button>
+                  <span id="guestCount">2</span>
+                  <button class="gp-btn" id="guestPlus">+</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="reserv-card-box">
+              <h2 class="box-title">2. Elige Zona</h2>
+              <div class="zone-btns">
+                <button class="zone-btn active" data-zone="interior">
+                  <span class="zb-emoji">🏮</span>
+                  <span class="zb-name">Interior</span>
+                  <span class="zb-cap">20 mesas</span>
+                </button>
+                <button class="zone-btn" data-zone="terraza">
+                  <span class="zb-emoji">🌿</span>
+                  <span class="zb-name">Terraza</span>
+                  <span class="zb-cap">10 mesas</span>
+                </button>
+                <button class="zone-btn" data-zone="segundo">
+                  <span class="zb-emoji">🏯</span>
+                  <span class="zb-name">2° Piso</span>
+                  <span class="zb-cap">8 mesas</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="reserv-card-box">
+              <h2 class="box-title">3. Tu Reservación</h2>
+              <div id="selectedSummary" class="selected-summary">
+                <p class="summary-hint">← Selecciona una mesa en el mapa</p>
+              </div>
+              <div id="reservFormFull" class="hidden">
+                <div class="form-group">
+                  <label>📝 Notas especiales</label>
+                  <textarea id="reservNotes" placeholder="Alergias, cumpleaños, preferencias de asiento…"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>📱 Notificación vía</label>
+                  <div class="notif-opts">
+                    <label class="notif-opt">
+                      <input type="radio" name="notif" value="email" checked/> ✉️ Correo
+                    </label>
+                    <label class="notif-opt">
+                      <input type="radio" name="notif" value="whatsapp"/> 📱 WhatsApp
+                    </label>
+                  </div>
+                </div>
+                <div id="whatsappField" class="form-group hidden">
+                  <label>Número de WhatsApp</label>
+                  <input type="tel" id="reservPhone" placeholder="+52 55 1234 5678"/>
+                </div>
+                <div id="reservError" class="form-error hidden"></div>
+                <button class="btn-primary btn-w100 btn-lg" id="btnReserve">
+                  ✅ Confirmar Reservación
+                </button>
+                <p class="reserv-note">Tu reservación quedará <strong>pendiente de confirmación</strong> por el administrador. Recibirás una notificación cuando sea confirmada.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reserv-right">
+            <div class="map-box">
+              <div class="map-header">
+                <h2 class="box-title" id="mapTitle">Planta: Interior</h2>
+                <div class="map-legend">
+                  <span class="ml-item"><span class="ml-dot available"></span>Disponible</span>
+                  <span class="ml-item"><span class="ml-dot selected"></span>Seleccionada</span>
+                  <span class="ml-item"><span class="ml-dot pending"></span>Pendiente</span>
+                  <span class="ml-item"><span class="ml-dot occupied"></span>Ocupada</span>
+                </div>
+              </div>
+              <div class="table-map-wrap">
+                <svg id="tableMapSVG" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="600" height="420" rx="16" fill="#1A1208" opacity=".04"/>
+                  <g id="mapDecoLayer"></g>
+                  <g id="mapTablesLayer"></g>
+                </svg>
+              </div>
+              <div class="map-info-tip" id="mapInfoTip">
+                Haz clic en una mesa para seleccionarla
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="my-reserv-section" id="myReservSection">
+          <h2>📋 Mis Reservaciones</h2>
+          <div id="myReservList" class="my-reserv-grid"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></div>
+        <p>Auténtica gastronomía coreana en el corazón de la ciudad.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">📘</a><a href="#" class="social-btn">📸</a><a href="#" class="social-btn">🎵</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Menú</h4><ul>
+        <li><a href="menu.html?cat=entradas">🥢 Entradas</a></li>
+        <li><a href="menu.html?cat=principales">🍲 Principales</a></li>
+        <li><a href="menu.html?cat=postres">🍰 Postres</a></li>
+        <li><a href="menu.html?cat=bebidas">🍹 Bebidas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Info</h4><ul>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="reservaciones.html">Reservaciones</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="mi-cuenta.html">Mi Cuenta</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Horarios</h4><ul>
+        <li><a>Lun–Vie: 12–22h</a></li>
+        <li><a>Sábado: 11–23h</a></li>
+        <li><a>Domingo: 11–21h</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hanshikdang · Todos los derechos reservados</p>
+      <p class="footer-kr">맛있게 드세요! 🥢</p>
+    </div>
+  </div>
+</footer>
+
+<div id="toastContainer"></div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="module" src="../js/reservaciones.js"></script>
+</body>
+</html>

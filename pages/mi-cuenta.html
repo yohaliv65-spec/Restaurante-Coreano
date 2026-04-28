@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Mi Cuenta – Hanshikdang</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👤</text></svg>"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/micuenta.css"/>
+</head>
+<body>
+<div class="page-loader"><div class="loader-inner"><div class="loader-kr">한</div><div class="loader-en">Hanshikdang</div></div></div>
+<header id="mainHeader">
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" class="nav-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      <li><a href="menu.html" class="nav-link">Menú</a></li>
+      <li><a href="reservaciones.html" class="nav-link">Reservaciones</a></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div id="navUserArea"></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main class="cuenta-page">
+  <div class="container">
+    <div id="guestMsg" class="hidden" style="text-align:center;padding:80px 0">
+      <div style="font-size:64px;margin-bottom:20px">🔐</div>
+      <h2 style="font-family:var(--f-serif);font-size:28px;margin-bottom:12px">Inicia sesión primero</h2>
+      <p style="color:var(--ink-50);margin-bottom:28px">Debes tener una cuenta para acceder a tu perfil.</p>
+      <a href="login.html" class="btn-primary btn-lg">Iniciar Sesión</a>
+    </div>
+
+    <div id="cuentaContent" class="hidden">
+      <div class="cuenta-header">
+        <div class="cu-avatar" id="cuAvatar"></div>
+        <div class="cu-info">
+          <h1 id="cuName" class="cu-name"></h1>
+          <p id="cuEmail" class="cu-email"></p>
+          <span id="cuRole" class="cu-role"></span>
+        </div>
+        <button class="btn-cerrar-sesion" id="btnLogoutCuenta">Cerrar sesión</button>
+      </div>
+
+      <div class="cuenta-grid">
+        <div class="cu-box">
+          <h2 class="cu-box-title">👤 Mi Perfil</h2>
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" id="profileName" placeholder="Tu nombre"/>
+          </div>
+          <div class="form-group">
+            <label>Teléfono / WhatsApp</label>
+            <input type="tel" id="profilePhone" placeholder="+52 55 1234 5678"/>
+          </div>
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" id="profileEmail" disabled style="background:var(--ink-08); cursor:not-allowed;"/>
+          </div>
+          <div id="profileMsg" class="hidden"></div>
+          <button class="btn-primary btn-w100" id="btnSaveProfile">💾 Guardar Cambios</button>
+        </div>
+
+        <div class="cu-box">
+          <h2 class="cu-box-title">📊 Estadísticas</h2>
+          <div class="cu-stats">
+            <div class="cu-stat">
+              <span class="cs-num" id="statTotal">–</span>
+              <span class="cs-label">Total</span>
+            </div>
+            <div class="cu-stat">
+              <span class="cs-num" id="statConfirmed">–</span>
+              <span class="cs-label">Confirmadas</span>
+            </div>
+            <div class="cu-stat">
+              <span class="cs-num" id="statPending">–</span>
+              <span class="cs-label">Pendientes</span>
+            </div>
+          </div>
+          <a href="reservaciones.html" class="btn-secondary btn-w100">📅 Nueva Reservación</a>
+        </div>
+      </div>
+
+      <div class="mis-reservas">
+        <h2>📅 Historial de Reservaciones</h2>
+        <div id="cuReservList"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></div>
+        <p>Auténtica gastronomía coreana en el corazón de la ciudad.</p>
+        <div class="footer-social"><a href="#" class="social-btn">📘</a><a href="#" class="social-btn">📸</a><a href="#" class="social-btn">🎵</a></div>
+      </div>
+      <div class="footer-col"><h4>Menú</h4><ul>
+        <li><a href="menu.html">Ver menú completo</a></li>
+        <li><a href="reservaciones.html">Reservaciones</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Horarios</h4><ul>
+        <li><a>Lun–Vie: 12–22h</a></li>
+        <li><a>Sábado: 11–23h</a></li>
+        <li><a>Domingo: 11–21h</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul>
+        <li><a href="contacto.html">📍 Polanco, CDMX</a></li>
+        <li><a href="tel:+525512345678">📞 55 1234 5678</a></li>
+        <li><a href="mailto:hola@hanshikdang.mx">✉️ hola@hanshikdang.mx</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hanshikdang · Todos los derechos reservados</p>
+      <p class="footer-kr">맛있게 드세요! 🥢</p>
+    </div>
+  </div>
+</footer>
+<div id="toastContainer"></div>
+<script type="module" src="../js/micuenta.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contacto – Hanshikdang</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/contacto.css"/>
+</head>
+<body>
+<div class="page-loader"><div class="loader-inner"><div class="loader-kr">한</div><div class="loader-en">Hanshikdang</div></div></div>
+<header id="mainHeader">
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" class="nav-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      <li><a href="menu.html" class="nav-link">Menú</a></li>
+      <li><a href="reservaciones.html" class="nav-link">Reservaciones</a></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div id="navUserArea"></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="ct-hero">
+    <div class="container">
+      <div class="section-tag" style="color:var(--gold-l)">연락처 · Contacto</div>
+      <h1 class="section-title light">Encuéntranos</h1>
+      <p>Estamos aquí para hacer tu experiencia inolvidable.</p>
+    </div>
+  </section>
+
+  <section class="ct-body">
+    <div class="container">
+      <div class="ct-grid">
+        <!-- Info -->
+        <div class="ct-info">
+          <h2 class="section-title">¿Cómo <em>llegar?</em></h2>
+          <div class="ct-items">
+            <div class="ct-item">
+              <span class="ci-icon">📍</span>
+              <div><strong>Dirección</strong><p>Av. Presidente Masaryk 108, Col. Polanco, CDMX, CP 11560</p></div>
+            </div>
+            <div class="ct-item">
+              <span class="ci-icon">📞</span>
+              <div><strong>Teléfono</strong><p><a href="tel:+525512345678">+52 55 1234 5678</a></p></div>
+            </div>
+            <div class="ct-item">
+              <span class="ci-icon">📱</span>
+              <div><strong>WhatsApp</strong><p><a href="https://wa.me/525512345678" target="_blank">+52 55 1234 5678</a></p></div>
+            </div>
+            <div class="ct-item">
+              <span class="ci-icon">✉️</span>
+              <div><strong>Correo</strong><p><a href="mailto:hola@hanshikdang.mx">hola@hanshikdang.mx</a></p></div>
+            </div>
+            <div class="ct-item">
+              <span class="ci-icon">⏰</span>
+              <div>
+                <strong>Horarios</strong>
+                <p>Lun–Vie: 12:00–22:00 · Sáb: 11:00–23:00 · Dom: 11:00–21:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ct-map">
+            <div class="map-visual">
+              <div class="mv-pin">📍</div>
+              <p class="mv-name">Hanshikdang</p>
+              <p class="mv-addr">Av. Masaryk 108, Polanco · CDMX</p>
+              <a href="https://maps.google.com/?q=Polanco+CDMX" target="_blank" class="btn-secondary" style="margin-top:14px">Abrir en Google Maps →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ct-form-box">
+          <h2 class="section-title">Escríbenos</h2>
+          <p style="color:var(--ink-50);margin-bottom:24px;font-size:14px">Para eventos privados, catering o cualquier consulta.</p>
+          <div id="ctSuccess" class="form-success hidden">✅ Mensaje enviado. Te contactaremos pronto.</div>
+          <div id="ctError" class="form-error hidden"></div>
+          <div class="form-row">
+            <div class="form-group"><label>Nombre</label><input type="text" id="ctName" placeholder="Tu nombre"/></div>
+            <div class="form-group"><label>Correo</label><input type="email" id="ctEmail" placeholder="tu@correo.com"/></div>
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" id="ctPhone" placeholder="+52 55 1234 5678"/>
+          </div>
+          <div class="form-group">
+            <label>Asunto</label>
+            <select id="ctSubject">
+              <option value="">Seleccionar</option>
+              <option value="reserva">Reservación especial</option>
+              <option value="evento">Evento privado</option>
+              <option value="catering">Catering</option>
+              <option value="queja">Queja / Sugerencia</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mensaje</label>
+            <textarea id="ctMessage" placeholder="Cuéntanos en qué podemos ayudarte…" style="min-height:120px"></textarea>
+          </div>
+          <button class="btn-primary btn-w100" id="btnSendMsg">Enviar Mensaje ✉️</button>
+          <p style="font-size:12px;color:var(--ink-50);text-align:center;margin-top:12px">Respondemos en menos de 24 horas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></div>
+        <p>Auténtica gastronomía coreana en el corazón de la ciudad.</p>
+        <div class="footer-social"><a href="#" class="social-btn">📘</a><a href="#" class="social-btn">📸</a><a href="#" class="social-btn">🎵</a></div>
+      </div>
+      <div class="footer-col"><h4>Menú</h4><ul>
+        <li><a href="menu.html?cat=entradas">🥢 Entradas</a></li>
+        <li><a href="menu.html?cat=principales">🍲 Principales</a></li>
+        <li><a href="menu.html?cat=postres">🍰 Postres</a></li>
+        <li><a href="menu.html?cat=bebidas">🍹 Bebidas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Info</h4><ul>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="reservaciones.html">Reservaciones</a></li>
+        <li><a href="mi-cuenta.html">Mi Cuenta</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul>
+        <li><a href="tel:+525512345678">📞 55 1234 5678</a></li>
+        <li><a href="mailto:hola@hanshikdang.mx">✉️ hola@hanshikdang.mx</a></li>
+        <li><a href="https://wa.me/525512345678">📱 WhatsApp</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hanshikdang · Todos los derechos reservados</p>
+      <p class="footer-kr">맛있게 드세요! 🥢</p>
+    </div>
+  </div>
+</footer>
+<div id="toastContainer"></div>
+<script type="module">
+  import { initLoader, initScrollHeader, initHamburger, setActiveNav, initAuthNav, showToast } from "../js/nav.js";
+  import { db } from "../js/firebase-config.js";
+  import { addDoc, collection, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  initLoader(); initScrollHeader(); initHamburger(); setActiveNav(); initAuthNav();
+
+  document.getElementById("btnSendMsg")?.addEventListener("click", async () => {
+    const name    = document.getElementById("ctName").value.trim();
+    const email   = document.getElementById("ctEmail").value.trim();
+    const phone   = document.getElementById("ctPhone").value.trim();
+    const subject = document.getElementById("ctSubject").value;
+    const message = document.getElementById("ctMessage").value.trim();
+    const errEl   = document.getElementById("ctError");
+    const sucEl   = document.getElementById("ctSuccess");
+    errEl.classList.add("hidden"); sucEl.classList.add("hidden");
+
+    if (!name || !email || !message) {
+      errEl.textContent = "Por favor completa los campos requeridos.";
+      errEl.classList.remove("hidden"); return;
+    }
+    try {
+      await addDoc(collection(db, "contactMessages"), {
+        name, email, phone, subject, message,
+        createdAt: serverTimestamp(), read: false
+      });
+      sucEl.classList.remove("hidden");
+      ["ctName","ctEmail","ctPhone","ctMessage"].forEach(id => document.getElementById(id).value = "");
+      document.getElementById("ctSubject").value = "";
+      showToast("✅ Mensaje enviado correctamente","success");
+    } catch(e) {
+      errEl.textContent = "Error al enviar. Intenta de nuevo.";
+      errEl.classList.remove("hidden");
+    }
+  });
+</script>
+</body>
+</html>

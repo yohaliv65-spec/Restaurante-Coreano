@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Menú – Hanshikdang</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥢</text></svg>"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/menu.css"/>
+</head>
+<body>
+<div class="page-loader"><div class="loader-inner"><div class="loader-kr">한</div><div class="loader-en">Hanshikdang</div></div></div>
+<header id="mainHeader">
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" class="nav-link">Inicio</a></li>
+      <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      <li><a href="menu.html" class="nav-link">Menú</a></li>
+      <li><a href="reservaciones.html" class="nav-link">Reservaciones</a></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div id="navUserArea"></div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="menu-hero">
+    <div class="container">
+      <div class="section-tag">메뉴 · Menú</div>
+      <h1 class="section-title">Nuestro <em>Menú</em></h1>
+      <p>50 platillos auténticos coreanos preparados con ingredientes frescos y recetas tradicionales.</p>
+    </div>
+  </section>
+  <section class="menu-section">
+    <div class="container">
+      <div class="menu-tabs" id="menuTabs">
+        <button class="menu-tab active" data-cat="entradas">🥢 Entradas <span class="tc">12</span></button>
+        <button class="menu-tab" data-cat="principales">🍲 Principales <span class="tc">18</span></button>
+        <button class="menu-tab" data-cat="postres">🍰 Postres <span class="tc">10</span></button>
+        <button class="menu-tab" data-cat="bebidas">🍹 Bebidas <span class="tc">10</span></button>
+      </div>
+      <div class="menu-filters">
+        <button class="mf-btn active" data-filter="all">Todos</button>
+        <button class="mf-btn" data-filter="spicy">🌶️ Picante</button>
+        <button class="mf-btn" data-filter="veg">🌿 Vegetariano</button>
+      </div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+</main>
+
+<div id="dishOverlay" class="dish-overlay hidden">
+  <div class="dish-box">
+    <button class="dish-close" id="dishClose">✕</button>
+    <div id="dishContent"></div>
+    <a href="reservaciones.html" class="btn-primary btn-w100" style="margin-top:20px">Reservar Mesa 🥢</a>
+  </div>
+</div>
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-kr">한식당</span><span class="logo-en">Hanshikdang</span></div>
+        <p>Auténtica gastronomía coreana en el corazón de la ciudad.</p>
+        <div class="footer-social"><a href="#" class="social-btn">📘</a><a href="#" class="social-btn">📸</a><a href="#" class="social-btn">🎵</a></div>
+      </div>
+      <div class="footer-col"><h4>Categorías</h4><ul>
+        <li><a href="?cat=entradas">🥢 Entradas</a></li>
+        <li><a href="?cat=principales">🍲 Principales</a></li>
+        <li><a href="?cat=postres">🍰 Postres</a></li>
+        <li><a href="?cat=bebidas">🍹 Bebidas</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Reservar</h4><ul>
+        <li><a href="reservaciones.html">Hacer reservación</a></li>
+        <li><a href="nosotros.html">Nuestros espacios</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Horarios</h4><ul>
+        <li><a>Lun–Vie: 12–22h</a></li>
+        <li><a>Sábado: 11–23h</a></li>
+        <li><a>Domingo: 11–21h</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Hanshikdang · Todos los derechos reservados</p>
+      <p class="footer-kr">맛있게 드세요! 🥢</p>
+    </div>
+  </div>
+</footer>
+<div id="toastContainer"></div>
+<script type="module" src="../js/menu.js"></script>
+</body>
+</html>

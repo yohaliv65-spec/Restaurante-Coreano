@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Panel Admin – Hanshikdang</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>"/>
+  <link rel="stylesheet" href="../css/base.css"/>
+  <link rel="stylesheet" href="../css/admin.css"/>
+</head>
+<body class="admin-body">
+
+<div class="page-loader">
+  <div class="loader-inner">
+    <div class="loader-kr">⚙️</div>
+    <div class="loader-en">Admin Panel</div>
+  </div>
+</div>
+
+<aside class="admin-sidebar" id="adminSidebar">
+  <div class="sb-logo">
+    <span class="logo-kr">한식당</span>
+    <span class="logo-en">Admin</span>
+  </div>
+  <nav class="sb-nav">
+    <button class="sb-link active" data-view="dashboard">📊 Dashboard</button>
+    <button class="sb-link" data-view="reservations">📅 Reservaciones</button>
+    <button class="sb-link" data-view="tables">🗺️ Mapa de Mesas</button>
+    <button class="sb-link" data-view="menu-admin">🍽️ Menú</button>
+    <button class="sb-link" data-view="new-reservation">➕ Nueva Reserva</button>
+  </nav>
+  <div class="sb-bottom">
+    <a href="../index.html" class="sb-link-sec">🏠 Ver Sitio</a>
+    <button class="sb-link-sec" id="btnAdminLogout">🚪 Cerrar Sesión</button>
+  </div>
+</aside>
+
+<div class="admin-main" id="adminMain">
+  <header class="admin-topbar">
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+    <div class="atb-title" id="viewTitle">Dashboard</div>
+    <div class="atb-user" id="adminUserBadge"></div>
+  </header>
+  <div class="admin-content" id="adminContent">
+    <div class="loading-ph">Cargando…</div>
+  </div>
+</div>
+
+<div id="toastContainer"></div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  (function() {
+    function initAdminToggle() {
+      const toggleBtn = document.getElementById('sidebarToggle');
+      const sidebar = document.getElementById('adminSidebar');
+      
+      if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          sidebar.classList.toggle('open');
+        });
+        
+        document.addEventListener('click', function(e) {
+          if (window.innerWidth <= 768) {
+            if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+              sidebar.classList.remove('open');
+            }
+          }
+        });
+        
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 768) {
+            sidebar.classList.remove('open');
+          }
+        });
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAdminToggle);
+    } else {
+      initAdminToggle();
+    }
+  })();
+</script>
+
+<script type="module" src="../js/admin.js"></script>
+</body>
+</html>

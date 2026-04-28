@@ -1,0 +1,44 @@
+rules_version = '2';
+// ══════════════════════════════════════════════════════
+//  FIRESTORE SECURITY RULES  –  Hanshikdang
+//  Pega esto en Firebase Console → Firestore → Reglas
+// ══════════════════════════════════════════════════════
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Función helper: verificar si el usuario es admin
+    function isAdmin() {
+      return request.auth != null &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // ── USUARIOS ──────────────────────────────────────
+    match /users/{userId} {
+      // Cada usuario puede leer/escribir su propio doc
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // Admin puede leer todos
+      allow read: if isAdmin();
+    }
+
+    // ── RESERVACIONES ─────────────────────────────────
+    match /reservations/{reservId} {
+      // Cualquier usuario autenticado puede leer reservaciones
+      // (necesario para verificar disponibilidad de mesas)
+      allow read: if request.auth != null;
+      // Crear: solo usuarios autenticados
+      allow create: if request.auth != null;
+      // Actualizar: el propio usuario o un admin
+      allow update: if request.auth != null && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+      // Eliminar: solo admin
+      allow delete: if isAdmin();
+    }
+
+    // ── MENSAJES DE CONTACTO ──────────────────────────
+    match /contactMessages/{msgId} {
+      allow create: if true; // Cualquiera puede enviar mensaje
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}
